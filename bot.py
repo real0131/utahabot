@@ -4,10 +4,10 @@ import schedule
 import time
 from twitter import *
 
-t = Twitter(auth=OAuth('778842210317979648-8sLyyVyQX1iS3FD1euWbrU0GoR7KB5q',
-                       'x1wmaZhler7l5uYpaXyATNLGBOs2hFuYLOVBhEcrI4yj8',
-                       'dKi9X6qmkhzsbNr0NWJz5ch9J',
-                       '4EF4rzZDuuUPToCxEaeUMQehff3hciglmqZ1WEY1tBgAKr8Lb2'))
+t = Twitter(auth=OAuth('Access Token',
+                       'Access Token Secret',
+                       'Consumer Key',
+                       'Consumer Key Secret'))
 
 def bot():
     html  = urlopen("http://utaha.moe")
