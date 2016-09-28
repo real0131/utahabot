@@ -13,19 +13,17 @@ t = Twitter(auth=OAuth('Access Token',
 isServer = True
 
 def bot(isServer):
-    html = urlopen("http://utaha.moe")
-    moe = BeautifulSoup(html)
-    header = moe.find('head').findAll('meta', {'name': 'description'})
-    if not header:
+    try:
+        html = urlopen("http://utaha.moe")
+        moe = BeautifulSoup(html)
+        header = moe.find('head').findAll('meta', {'name': 'description'})
+        isServer = True
+    except:
         if isServer is True:
             tweet()
             isServer = False
         else:
             return 0
-    else:
-        if isServer is False:
-            isServer = True
-        return 0
 
 def tweet():
     now = time.localtime()
