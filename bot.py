@@ -17,7 +17,9 @@ def bot(isServer):
         html = urlopen("http://utaha.moe")
         moe = BeautifulSoup(html)
         header = moe.find('head').findAll('meta', {'name': 'description'})
-        isServer = True
+        if isServer is False:
+            recover()
+            isServer = True
     except:
         if isServer is True:
             tweet()
@@ -33,6 +35,15 @@ def tweet():
     tweets += "\n" + "퍼퍼펑"
     tweets += "\n" + "http://utaha.moe"
     t.statuses.update(status=tweets)
+def recover():
+    now = time.localtime()
+    s = "%04d-%02d-%02d %02d:%02d:%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec)
+    tweets = ""
+    tweets += str(s) + "\n" + "현재 utaha.moe는?" + "\n"
+    tweets += "\n" + "복구"
+    tweets += "\n" + "http://utaha.moe"
+    t.statuses.update(status=tweets)
+
 
 schedule.every(1).minutes.do(bot)
 
