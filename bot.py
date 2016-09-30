@@ -12,7 +12,7 @@ t = Twitter(auth=OAuth('Access Token',
                        'Consumer Key Secret'))
 isServer = True
 
-def bot(isServer):
+def bot():
     try:
         html = urlopen("http://utaha.moe")
         moe = BeautifulSoup(html)
