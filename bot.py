@@ -14,6 +14,7 @@ isServer = True
 
 def bot():
     try:
+        global isServer
         html = urlopen("http://utaha.moe")
         moe = BeautifulSoup(html)
         header = moe.find('head').findAll('meta', {'name': 'description'})
@@ -43,7 +44,6 @@ def recover():
     tweets += "\n" + "복구"
     tweets += "\n" + "http://utaha.moe"
     t.statuses.update(status=tweets)
-
 
 schedule.every(1).minutes.do(bot)
 
