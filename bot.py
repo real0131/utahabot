@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 
+#import urllib2 (for python 2)
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import schedule
@@ -15,6 +16,7 @@ isServer = True
 def bot():
     try:
         global isServer
+        #html = urllib2.urlopen("http://utaha.moe") (for python 2)
         html = urlopen("http://utaha.moe")
         moe = BeautifulSoup(html)
         header = moe.find('head').findAll('meta', {'name': 'description'})
